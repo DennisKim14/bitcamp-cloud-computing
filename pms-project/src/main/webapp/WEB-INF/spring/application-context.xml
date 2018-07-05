@@ -27,6 +27,7 @@
                 value="bitcamp.java106.pms.domain"/>   
     </bean>
     
+    <!-- property-placeholder에서 읽어들인 값을 driver, url, username, password에 적용 -->
     <bean id="dataSource" 
           class="org.apache.commons.dbcp.BasicDataSource" 
           destroy-method="close">
@@ -37,7 +38,8 @@
     </bean>
     
     <context:property-placeholder 
-        location="classpath:bitcamp/java106/pms/sql/jdbc.properties"/> 
+        location="classpath:jdbc.properties,
+                  classpath:security.properties"/> 
         
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="bitcamp.java106.pms.dao" />

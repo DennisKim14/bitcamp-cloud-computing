@@ -3,7 +3,7 @@
 - openjdk 10.0.1
 - eclipse photon
 - visual studio code
-- git client
+- git client (scoop install git) -> powershell 껏다 키기
 - scoop (package manager)
 - scoop install gradle
 - scoop install mysql
@@ -72,7 +72,7 @@ mysql> SQL을 복사하여 붙여 넣는다.
 ---
 워크스페이스 설정
 1) 문자집합을 utf-8로 설정한다
-- Preferences/General/Workspace/Text file encodig
+- Preferences/General/Workspace/Text file encoding
   - UTF-8로 설정한다.
 2) 에디터 기본 환경 설정
 - Preferences/General/Editors/Text Editors
