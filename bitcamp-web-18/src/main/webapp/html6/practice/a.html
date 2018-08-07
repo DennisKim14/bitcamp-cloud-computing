@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	text-align: center;
+	width: 551px;
+	height: 551px;
+	margin: auto;
+}
+
+td {
+	width: 170px;
+	height: 170px;
+	border: 3px solid black;
+	font-size: 100px;
+}
+</style>
+</head>
+<body>
+	<h1>Tic-Tac-Toe 게임</h1>
+	<table>
+		<tr>
+			<td id="0"></td>
+			<td id="1"></td>
+			<td id="2"></td>
+		</tr>
+
+		<tr>
+			<td id="3"></td>
+			<td id="4"></td>
+			<td id="5"></td>
+		</tr>
+
+		<tr>
+			<td id="6"></td>
+			<td id="7"></td>
+			<td id="8"></td>
+		</tr>
+	</table>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+"use strict"
+
+    // 플레이어 vs 컴퓨터
+    // 내가 선수를 두면 그 다음은 컴퓨터 그 다음은 나 이런식으로..
+
+    var playerX = document.getElementById("X");
+    var ComputerO = document.getElementById("O");
+
+    // 처음에 X가 찍히게 하는 법
+    // 아니 값 나온거로 랜덤으로 하나찍어주는거 실화냐 ㅡㅡ;
+
+    $("#0").click(function() {
+        control();
+    });
+    
+        function control() {
+            var mr = Math.floor((Math.random() * 9));
+            if (mr == 0) {
+                $("#0").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 1) {
+                $("#1").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 2) {
+                $("#2").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 3) {
+                $("#3").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 4) {
+                $("#4").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 5) {
+                $("#5").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 6) {
+                $("#6").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else if (mr == 7) {
+                $("#7").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            } else {
+                $("#8").click(function() {
+                    $(this).text('X');
+                    $(this).removeAttr();
+                })
+            }
+        }
+    </script>
+</body>
+</html>

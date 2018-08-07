@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트</title>
+</head>
+<body>
+<h1>리턴 값 destructuring</h1>
+
+<script>
+"use strict"
+
+function Score(name, kor, eng, math) {
+    // 바깥 함수의 로컬 변수는 클로져에서 따로 복제해둔다. -> 같은 메모리를 공유
+    // 오직 클로저만이 접근할 수 있다.
+    // 그래서 자바의 private 필드처럼 사용할 수 있다.
+    //
+    var obj = new Object();
+    obj.setName = function(n) {name = n};
+    obj.getName = function() {return name;};
+    
+    obj.setKor = function(value) {kor = value};
+    obj.getKor = function() {return kor;};
+    
+    obj.setEng = function(value) {eng = value};
+    obj.getEng = function() {return eng;};
+    
+    obj.setMath = function(value) {math = value};
+    obj.getMath = function() {return math;};
+    
+    obj.sum = function() {return kor + eng + math;};
+    obj.aver = function(){return this.sum() / 3;};
+    
+    return obj;
+}
+
+var {getName, sum, aver} = Score("홍길동", 100, 100, 96);
+
+console.log(getName(), sum());
+
+
+
+</script>
+
+</body>
+</html>
