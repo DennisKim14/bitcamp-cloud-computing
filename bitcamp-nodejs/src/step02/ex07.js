@@ -35,5 +35,5 @@ con.end(function(err){
     console.log('연결을 끊었습니다.!');
 });
 
-console.log('select 실행');
+console.log('insert 실행');
 
