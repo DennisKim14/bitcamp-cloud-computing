@@ -8,15 +8,15 @@ const url = require('url')
 
 const server = http.createServer((req, res) => {
     console.log('요청 받았음!')
-
-    // 클라이언트가 요청한 url을 보기
-    // => http://localhost:8000/aaa/bbb/ccc?name=hong&age=20
-    console.log(req.url + '\n'); // => /aaa/bbb/ccc?name=hong&age=20
     
     res.writeHead(200, {
         'Content-Type': 'text/plain;charset=UTF-8'
     });
     
+    // 클라이언트가 요청한 url을 보기
+    // => http://localhost:8000/aaa/bbb/ccc?name=hong&age=20
+    res.write(req.url + '\n'); // => /aaa/bbb/ccc?name=hong&age=20
+
     // URL 분석기를 이용하여 URL을 분석해보자!
     var urlInfo = url.parse(req.url);
     
@@ -24,12 +24,8 @@ const server = http.createServer((req, res) => {
     res.write(`pathname= ${urlInfo.pathname}\n`);
     res.write(`search= ${urlInfo.search}\n`);
     res.write(`query= ${urlInfo.query}`);
-    
-    
-    // 클라이언트가 요청한 url을 보기
-    // => http://localhost:8000/aaa/bbb/ccc?name=hong&age=20
-    res.write(req.url);
     res.end();
+    //zz
 });
 
 server.listen(8000, () => {

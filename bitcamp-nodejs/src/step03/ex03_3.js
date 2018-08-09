@@ -9,8 +9,6 @@ const url = require('url')
 const server = http.createServer((req, res) => {
     console.log('요청 받았음!')
     
-    console.log(req.url + '\n'); // => /aaa/bbb/ccc?name=hong&age=20
-
     res.writeHead(200, {
         'Content-Type': 'text/plain;charset=UTF-8'
     });
