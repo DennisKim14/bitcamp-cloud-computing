@@ -1,0 +1,15 @@
+plugins {
+    // 자바 관련 빌드 명령 플러그인 추가
+    id 'java'
+
+    // 이클립스 관련 빌드 명령 플로그인 추가 
+    //id 'eclipse'
+    id 'eclipse-wtp' //= eclise + wtp 
+    
+    // web archive 관련 빌드 명령을 추가해야 한다.
+    id 'war'
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}

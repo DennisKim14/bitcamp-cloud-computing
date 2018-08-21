@@ -18,7 +18,8 @@ memberDao.setConnectionPool(pool);
 
 // get 요청에 대해 핸들러를 등록하기
 router.get('/list', (req, res) => {
-    res.writeHead(200, {'Content-Type': 'text/plain;charset=UTF-8'});
+    //res.writeHead(200, {'Content-Type': 'text/plain;charset=UTF-8'});
+    
     var pageNo = 1;
     var pageSize = 3;
     
@@ -36,10 +37,11 @@ router.get('/list', (req, res) => {
             return;
         }
         
-        for (var row of results) {
+        res.render('list', {list: results})
+        /*for (var row of results) {
             res.write(`${row.email}, ${row.mid}\n`);
         }
-        res.end();
+        res.end();*/
     });
 });
 

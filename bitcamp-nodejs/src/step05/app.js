@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
 
 // 정적 HTML 파일 처리
-app.use(express.static('public'))
+app.use(express.static('template'))
 
 // 통합 템플릿 엔진 관리자 모듈 로딩
 // => 템플릿 엔진이 아니라 템플릿 엔진을 중간에서 관리해주는 역할을 수행한다.
@@ -28,7 +28,7 @@ app.set('view engine', 'html')
 // 템플릿 파일이 있는 디렉토리 경로를 지정한다.
 const path = require('path')
 // 'view'는 정해진 것 건들지 마!
-app.set('views', path.join(__dirname, 'templates'))
+app.set('views', path.join(__dirname, 'template'))
 
 // => 라우터를 Express의 웹서버에 등록한다.
 app.use('/member', require('./member'))
@@ -36,8 +36,7 @@ app.use('/board', require('./board'))
 
 app.get('/hello', (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain;charset=UTF-8'});
-    res.write('Hello!');
-    res.end();
+    res.write('Hello');
 });
 
 app.listen(8000, () => {
