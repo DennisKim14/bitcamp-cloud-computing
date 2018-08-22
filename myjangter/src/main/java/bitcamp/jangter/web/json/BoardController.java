@@ -41,6 +41,7 @@ public class BoardController {
             @PathVariable int no) throws Exception { 
         HashMap<String,Object> data = new HashMap<>();
         data.put("board", boardService.get(no));
+        data.put("status", "success");
         return data;
     }
     
@@ -60,7 +61,6 @@ public class BoardController {
         data.put("size", size);
         data.put("totalPage", 
                 boardService.getTotalPage(size));
-
         return data;
     }
 }

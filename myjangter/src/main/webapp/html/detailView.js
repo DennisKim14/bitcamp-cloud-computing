@@ -1,6 +1,25 @@
 'use strict'
 
-$.getJSON(`${serverApiAddr}/json/detailView/${no}`, function(result) {
+var formState = 'view';
+var selectedCardNo = 0;
+
+$(document.body).on('show.detail', (e, no) => {
+    formState = 'view';
+    
+    $.getJSON(`${serverApiAddr}/json/businesscard/${no}`, (result) => {
+        if(result.status !== 'success') {return;
+            selectedCardNo = 0;
+            return;
+        }
+        selectedCardNo = no;
+        
+        $('#f-title').val(result.data.title);
+        $('#f-writer').val(result.data.writer);
+        $('#f-content').val(result.data.content);
+    })
+})
+
+/*$.getJSON(`${serverApiAddr}/json/detailView/${no}`, function(result) {
     data = result;
     if (data.board == null) {
         alert('게시글이 존재하지 않습니다.');
@@ -10,10 +29,10 @@ $.getJSON(`${serverApiAddr}/json/detailView/${no}`, function(result) {
     $('#fWriter').val(data.board.writer);
     $('#fTitle').val(data.board.title);
     $('#fContent').val(data.board.content);
-})
+})*/
 
-$(eUpdateBtn).click(function() {
-    $.post(serverApiAddr + `/json/board/view/{no}`, {
+$('#update-btn').click(function() {
+    $.post(serverApiAddr + `/json/board/detailView/{no}`, {
         'writer' : $('#fWriter').val(),
         'title' : $('#fTitle').val(),
         'contnet' : $('#fContent').val()
@@ -28,7 +47,7 @@ $(eUpdateBtn).click(function() {
     }, 'json');
 });
 
-$(eListBtn).click(function() {
+$('#list-btn').click(function() {
     if (page) {
         location.href = `list.html?page=${page}&size=${size}`;
     } else {
