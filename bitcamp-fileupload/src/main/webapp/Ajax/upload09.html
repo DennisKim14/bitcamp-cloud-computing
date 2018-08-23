@@ -33,15 +33,16 @@ $('#fileupload').fileupload({
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
     console.log(data.result);
-    setTimeout(() => {
-        // for (var filename of data.result.filenames) {...}
-        // $.each(배열, 함수(인덱스, 항목) {...})
+    setTimeout(()=>{
+        //for (var filename of data.result.filenames) {...}
+        //$.each(배열, 함수(인덱스,항목) {...})
         //
-	    $.each(data.result.filenames, function(index, file) {
-	        $('<img>').attr('src', `../files/${filename}`)
-                .css('height', '60px')
+        $.each(data.result.filenames, function(index, filename) {
+            $('<img>').attr('src', `../files/${filename}`)
+                .css('height', '110px')
                 .appendTo('#imgList');
-	    });
+        });
+        
     }, 5000);
   }
 }); 
@@ -50,9 +51,3 @@ $('#fileupload').fileupload({
 
 </body>
 </html>
-
-
-
-
-
-
