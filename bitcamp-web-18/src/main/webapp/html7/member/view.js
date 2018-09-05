@@ -13,6 +13,8 @@ if (id == undefined) { // 입력 폼
     $.getJSON(serverApiAddr + `/json/member/view/${id}`, 
         function(result) {
             data = result;
+            console.log(result);
+            console.log('=====')
             if (data.member == null) {
                 alert('아이디가 무효합니다.');
                 location.href = "list.html";
@@ -39,6 +41,7 @@ $(eUpdateBtn).click(function() {
             password: $(ePassword).val()
         },
         function(data) {
+            console.log(data)
             if (data.status == 'success') {
                 location.href = `list.html?page=${page}&size=${size}`;
             } else {

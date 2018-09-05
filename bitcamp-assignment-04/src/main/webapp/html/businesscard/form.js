@@ -14,7 +14,7 @@ $(document.body).on('show.detail', (e, no) => {
     formState = 'view';
     
     $.getJSON(`${serverApiAddr}/json/businesscard/${no}`, (result) => {
-        if(result.status !== 'success') {return;
+        if(result.status !== 'success') {
             selectedCardNo = 0;
             return;
         }

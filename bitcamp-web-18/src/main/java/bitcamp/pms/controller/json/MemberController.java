@@ -71,6 +71,9 @@ public class MemberController {
     @RequestMapping("update")
     public Object update(Member member) throws Exception {
         HashMap<String,Object> result = new HashMap<>();
+        
+        System.out.println(member);
+        
         if (memberService.update(member) == 0) {
             result.put("status", "fail");
             result.put("error", "해당 아이디가 없습니다.");
@@ -82,19 +85,12 @@ public class MemberController {
     
     @RequestMapping("view/{id}")
     public Object view(@PathVariable String id) throws Exception {
+        
+        System.out.println(id);
+        
         HashMap<String,Object> data = new HashMap<>();
         data.put("member", memberService.get(id));
         return data;
     }
 
 }
-
-
-
-
-
-
-
-
-
-
